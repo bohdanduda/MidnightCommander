@@ -10,7 +10,7 @@ namespace FileManager
         public FileManager()
         {
             this.LeftPanel = new Panel(Settings.disk1, 0);
-            this.RightPanel = new Panel(Settings.disk2, Settings.panelRowWidth + 4);
+            this.RightPanel = new Panel(Settings.disk2, Settings.panelRowWidth + 2);
             this.LeftPanel.isSelected = true;
             this.LeftPanel.Load();
             this.RightPanel.Load();

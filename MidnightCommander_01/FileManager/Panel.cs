@@ -81,7 +81,7 @@ namespace FileManager
         public void DrawBorderLine(char left, char middle, char right)
         {
             Console.Write(left);
-            for (int i = 0; i < Settings.panelRowWidth + 2; i++)
+            for (int i = 0; i < Settings.panelRowWidth; i++)
             {
                 Console.Write(middle);
             }
@@ -125,31 +125,44 @@ namespace FileManager
         public void DrawBody()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            int height = 1;
+            Console.SetCursorPosition(offsetLeft, 1);
+            DrawColumnHeadings();
+            int height = 2;
             for (int i = scroll; i < Settings.itemsToDraw + scroll - 1; i++)
             {
                 Console.SetCursorPosition(offsetLeft, height);
                 height++;
                 try
                 {
-                    Console.Write("│ ");
+                    Console.Write("│");
                     if (i == selection && this.isSelected)
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
                     }
-                    itemList[i].DrawLine();
+                    this.DrawLine(itemList[i]);
                     Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.Write(" │");
+                    Console.Write("│");
                 }
                 catch
                 {
                     // prázdný řádek
-                    Console.Write("".PadRight(Settings.panelRowWidth) + " │");
+                    Console.Write("".PadRight(Settings.panelRowWidth) + "│");
                 }
                 itemsDrawn++;
             }
             Console.ResetColor();
         }
+
+        public void DrawColumnHeadings()
+        {
+            Console.Write("│            Name                   │   Size  │   MTime    │");
+        }
+
+        public void DrawLine(Item item)
+        {
+            Console.Write($"{item.GetFormattedName().PadRight(Settings.NameColumnWidth, ' ')}│{item.GetFileSize().PadLeft(Settings.SizeColumnWidth, ' ')}│{item.GetMTime()}");
+        }
+
 
         // vybere položku nahoře
         public void SelectUp()
