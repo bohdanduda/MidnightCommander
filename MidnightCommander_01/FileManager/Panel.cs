@@ -133,7 +133,7 @@ namespace FileManager
             {
                 Console.SetCursorPosition(offsetLeft, height);
                 height++;
-                try
+                if (i<itemList.Count)
                 {
                     if (i == selection && this.isSelected)
                     {
@@ -144,7 +144,7 @@ namespace FileManager
                         DrawItemLine(itemList[i]);
                     }
                 }
-                catch
+                else
                 {
                     DrawEmptyLine();
                 }
