@@ -11,6 +11,7 @@
         public static bool forceClearMessage;
         public static int NameColumnWidth = 35;
         public static int SizeColumnWidth = 9;
+        public static int MTimeColumnWidth = 12;
         public static int MaxNameLenght = 30;
 
     }

@@ -126,7 +126,8 @@ namespace FileManager
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.SetCursorPosition(offsetLeft, 1);
-            DrawColumnHeadings();
+            DrawHeadingLine();
+
             int height = 2;
             for (int i = scroll; i < Settings.itemsToDraw + scroll - 1; i++)
             {
@@ -134,33 +135,59 @@ namespace FileManager
                 height++;
                 try
                 {
-                    Console.Write("│");
                     if (i == selection && this.isSelected)
                     {
-                        Console.BackgroundColor = ConsoleColor.Blue;
+                        DrawActiveItemLine(itemList[i]);
                     }
-                    this.DrawLine(itemList[i]);
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.Write("│");
+                    else
+                    {
+                        DrawItemLine(itemList[i]);
+                    }
                 }
                 catch
                 {
-                    // prázdný řádek
-                    Console.Write("".PadRight(Settings.panelRowWidth) + "│");
+                    DrawEmptyLine();
                 }
                 itemsDrawn++;
             }
             Console.ResetColor();
         }
 
-        public void DrawColumnHeadings()
+        public void DrawHeadingLine()
         {
-            Console.Write("│            Name                   │   Size  │   MTime    │");
+            DrawLine("Name".PadLeft(18, ' '), "Size".PadRight(7, ' '), "MTime".PadLeft(8, ' '), ConsoleColor.Yellow, ConsoleColor.DarkBlue);
+        }
+        public void DrawItemLine(Item item)
+        {
+            DrawLine(item.GetFormattedName(), item.GetFileSize(), item.GetMTime(), ConsoleColor.White, ConsoleColor.DarkBlue);
+        }
+        public void DrawActiveItemLine(Item item)
+        {
+            DrawLine(item.GetFormattedName(), item.GetFileSize(), item.GetMTime(), ConsoleColor.White, ConsoleColor.Blue);
+        }
+        public void DrawEmptyLine()
+        {
+            DrawLine("", "", "", ConsoleColor.White, ConsoleColor.DarkBlue);
         }
 
-        public void DrawLine(Item item)
+        public void DrawLine(string text1, string text2, string text3, ConsoleColor textColor, ConsoleColor bgrColor)
         {
-            Console.Write($"{item.GetFormattedName().PadRight(Settings.NameColumnWidth, ' ')}│{item.GetFileSize().PadLeft(Settings.SizeColumnWidth, ' ')}│{item.GetMTime()}");
+
+            Console.Write("│");
+            Console.BackgroundColor = bgrColor;
+            Console.ForegroundColor = textColor;
+            Console.Write(text1.PadRight(Settings.NameColumnWidth, ' '));
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("│");
+            Console.ForegroundColor = textColor;
+            Console.Write(text2.PadLeft(Settings.SizeColumnWidth, ' '));
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("│");
+            Console.ForegroundColor = textColor;
+            Console.Write(text3.PadRight(Settings.MTimeColumnWidth, ' '));
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("│");
         }
 
 
