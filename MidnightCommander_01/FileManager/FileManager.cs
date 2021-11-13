@@ -54,8 +54,7 @@ namespace FileManager
         {
             LeftPanel.isSelected = !LeftPanel.isSelected;
             RightPanel.isSelected = !RightPanel.isSelected;
-            LeftPanel.DrawTop();
-            RightPanel.DrawTop();
+            Settings.forceRedraw = true;
         }
 
         public static void WriteMessage(string input)

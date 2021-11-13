@@ -133,7 +133,7 @@ namespace FileManager
                 try
                 {
                     Console.Write("│ ");
-                    if (i == selection)
+                    if (i == selection && this.isSelected)
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
                     }
