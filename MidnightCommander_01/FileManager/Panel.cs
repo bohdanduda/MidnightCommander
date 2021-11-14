@@ -98,7 +98,7 @@ namespace FileManager
             // vypíše přes okraj vybraný disk a adresář
             Console.SetCursorPosition(this.offsetLeft + 4, 0);
             int startIndex = Settings.panelRowWidth - 6;
-            if (this.isSelected) Console.BackgroundColor = ConsoleColor.Blue;
+            if (this.isSelected) Console.BackgroundColor = ConsoleColor.DarkCyan;
             if (this.path.Length > Settings.panelRowWidth - 6)
             {
                 Console.Write("..." + this.path.Substring(this.path.Length - (Settings.panelRowWidth - 6), Settings.panelRowWidth - 6));
@@ -163,7 +163,7 @@ namespace FileManager
         }
         public void DrawActiveItemLine(Item item)
         {
-            DrawLine(item.GetFormattedName(), item.GetFileSize(), item.GetMTime(), ConsoleColor.White, ConsoleColor.Blue);
+            DrawLine(item.GetFormattedName(), item.GetFileSize(), item.GetMTime(), ConsoleColor.White, ConsoleColor.DarkCyan);
         }
         public void DrawEmptyLine()
         {
