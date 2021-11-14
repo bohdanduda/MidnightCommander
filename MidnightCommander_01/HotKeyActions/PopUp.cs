@@ -1,20 +1,20 @@
 ﻿using System;
 
-namespace FileManager
+namespace HotKeyActions
 {
-    public class PopUp
+    public abstract class PopUp
     {
         public ConsoleColor bgrColor = ConsoleColor.DarkRed;
-        public int width = 10;
-        public int height = 6;
-        public int offsetLeft = 54;
-        public int offsetTop = 10;
-        
+        public int width;
+        public int height;
+        public int offsetLeft;
+        public int offsetTop;
+
         public void DrawFrame()
         {
             Console.BackgroundColor = bgrColor;
-            int left = offsetLeft;
-            int top = offsetTop;
+            int left = this.offsetLeft;
+            int top = this.offsetTop;
             Console.SetCursorPosition(left, top);
             top++;
             DrawBorderLine('┌', '─', '┐');

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Diagnostics;
+using HotKeyActions;
 
 namespace FileManager
 {
@@ -268,12 +268,21 @@ namespace FileManager
 
         public void SelectDrive()
         {
-            DriveSelector selector = new DriveSelector();
+            DriveSelect selector = new DriveSelect();
             string diskName = selector.SelectDrive();
             this.diskName = diskName;
             this.path = diskName;
             Settings.forceReload = true;
             Settings.forceRedraw = true;
+        }
+
+        public void MkDir()
+        {
+            MakeDir makeDir = new MakeDir();
+            makeDir.MkDir(this.path);
+            Settings.forceReload = true;
+            Settings.forceRedraw = true;
+
         }
     }
 }

@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.IO;
+using FileManager;
 
-namespace FileManager
+namespace HotKeyActions
 {
-    public class DriveSelector : PopUp
+    public class DriveSelect : PopUp
     {
+        public DriveSelect()
+        {
+            this.width = 8;
+            this.height = 6;
+            this.offsetLeft = 56;
+            this.offsetTop = 10;
+        }
         public string SelectDrive()
         {
             List<string> drives = DriveManager.DiscoverDrives();

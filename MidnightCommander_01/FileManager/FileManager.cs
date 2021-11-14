@@ -52,6 +52,9 @@ namespace FileManager
                 case ConsoleKey.Enter:
                     GetSelectedPanel().Enter();
                     break;
+                case ConsoleKey.F7:
+                    GetSelectedPanel().MkDir();
+                    break;
                 case ConsoleKey.F9:
                     GetSelectedPanel().SelectDrive();
                     break;
