@@ -6,8 +6,8 @@ namespace FileManager
     {
         public ConsoleColor bgrColor = ConsoleColor.DarkRed;
         public int width = 10;
-        public int height = 10;
-        public int offsetLeft = 10;
+        public int height = 6;
+        public int offsetLeft = 54;
         public int offsetTop = 10;
         
         public void DrawFrame()
@@ -18,7 +18,7 @@ namespace FileManager
             Console.SetCursorPosition(left, top);
             top++;
             DrawBorderLine('┌', '─', '┐');
-            for (int i = 2; i < this.width; i++)
+            for (int i = 2; i < this.height; i++)
             {
                 Console.SetCursorPosition(left, top);
                 top++;

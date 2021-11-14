@@ -7,6 +7,9 @@ namespace FileManager
     {
         public Panel LeftPanel;
         public Panel RightPanel;
+        public HotKeyList hotKeys = new HotKeyList();
+
+        
 
         public FileManager()
         {
@@ -27,6 +30,8 @@ namespace FileManager
         {
             this.LeftPanel.Draw();
             this.RightPanel.Draw();
+            this.hotKeys.Draw();
+
         }
         
         public void HandleKey()

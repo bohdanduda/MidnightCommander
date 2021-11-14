@@ -11,7 +11,7 @@ namespace FileManager
 
             FileManager fileManager = new FileManager();
             fileManager.Draw();
-
+                        
             while (true)
             {
                 Settings.forceClearMessage = true;

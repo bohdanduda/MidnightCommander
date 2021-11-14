@@ -2,7 +2,7 @@
 {
     public static class Settings
     {
-        public static int itemsToDraw = 28;
+        public static int itemsToDraw = 27;
         public static int panelRowWidth = 58;
         public static string disk1;
         public static string disk2;
