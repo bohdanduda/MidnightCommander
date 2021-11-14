@@ -282,7 +282,13 @@ namespace FileManager
             makeDir.MkDir(this.path);
             Settings.forceReload = true;
             Settings.forceRedraw = true;
-
+        }
+        public void RmDir()
+        {
+            RemoveDir rmDir = new RemoveDir();
+            rmDir.RmDir(itemSelected);
+            Settings.forceReload = true;
+            Settings.forceRedraw = true;
         }
     }
 }
