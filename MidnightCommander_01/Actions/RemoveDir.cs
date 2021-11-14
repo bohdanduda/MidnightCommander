@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace HotKeyActions
+namespace Actions
 {
     public class RemoveDir : PopUp
     {

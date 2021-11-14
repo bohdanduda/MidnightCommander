@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using FileManager;
 
-namespace HotKeyActions
+namespace Actions
 {
-    public class DriveSelect : PopUp
+    public class ChangeDrive : PopUp
     {
-        public DriveSelect()
+        public ChangeDrive()
         {
             this.width = 8;
             this.height = 6;
@@ -53,9 +53,7 @@ namespace HotKeyActions
                         }
                         break;
                     case ConsoleKey.Enter:
-
                         return drives[selected];
-                        break;
                     default:
                         break;
                 }

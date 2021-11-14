@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using HotKeyActions;
+using Actions;
 
 namespace FileManager
 {
@@ -268,7 +268,7 @@ namespace FileManager
 
         public void SelectDrive()
         {
-            DriveSelect selector = new DriveSelect();
+            ChangeDrive selector = new ChangeDrive();
             string diskName = selector.SelectDrive();
             this.diskName = diskName;
             this.path = diskName;
