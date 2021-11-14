@@ -265,5 +265,15 @@ namespace FileManager
                 }
             }
         }
+
+        public void SelectDrive()
+        {
+            DriveSelector selector = new DriveSelector();
+            string diskName = selector.SelectDrive();
+            this.diskName = diskName;
+            this.path = diskName;
+            Settings.forceReload = true;
+            Settings.forceRedraw = true;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FileManager
 {
@@ -45,6 +46,12 @@ namespace FileManager
                     break;
                 case ConsoleKey.Enter:
                     GetSelectedPanel().Enter();
+                    break;
+                case ConsoleKey.F9:
+                    GetSelectedPanel().SelectDrive();
+                    break;
+                case ConsoleKey.F10:
+                    Settings.forceExit = true;
                     break;
                 default:
                     break;

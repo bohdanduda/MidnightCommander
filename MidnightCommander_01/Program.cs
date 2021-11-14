@@ -7,8 +7,11 @@ namespace FileManager
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
+            DriveManager.InitDrives();
+
             FileManager fileManager = new FileManager();
             fileManager.Draw();
+
             while (true)
             {
                 Settings.forceClearMessage = true;
@@ -26,6 +29,10 @@ namespace FileManager
                 if (Settings.forceClearMessage)
                 {
                     FileManager.ClearMessage();
+                }
+                if (Settings.forceExit)
+                {
+                    break;
                 }
             }
         }
